@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitLife - Transform Your Life</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">FitLife</div>
+        <div class="nav-links" id="navLinks">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#workouts" class="nav-link">Workouts</a>
+          <a href="#progress" class="nav-link">Progress</a>
+          <a href="#nutrition" class="nav-link">Nutrition</a>
+          <a href="#calculator" class="nav-link">BMI</a>
+          <button id="themeToggle" class="theme-toggle">
+            <i data-lucide="sun" class="icon"></i>
+          </button>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i data-lucide="menu" class="icon"></i>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="hero-bg">
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80"
+            alt="Fitness Background"
+          />
+          <div class="overlay"></div>
+        </div>
+        <div class="hero-content">
+          <h1 class="fade-in">
+            Transform Your Life
+            <br />
+            <span class="accent">One Rep at a Time</span>
+          </h1>
+          <p class="fade-in">
+            Join our community of fitness enthusiasts and begin your journey to
+            a healthier, stronger you.
+          </p>
+          <div class="cta-buttons fade-in">
+            <button class="btn-primary">
+              <i data-lucide="play" class="icon"></i>
+              Start Your Journey
+            </button>
+            <button class="btn-secondary">
+              Learn More
+              <i data-lucide="chevron-right" class="icon"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workout Plans Section -->
+      <section id="workouts" class="section">
+        <h2>Workout Plans</h2>
+        <div class="workout-categories">
+          <div class="workout-card" data-category="cardio">
+            <img
+              src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&q=80"
+              alt="Cardio"
+            />
+            <h3>Cardio</h3>
+            <p>Boost your endurance and burn calories</p>
+          </div>
+          <div class="workout-card" data-category="strength">
+            <img
+              src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&q=80"
+              alt="Strength"
+            />
+            <h3>Strength</h3>
+            <p>Build muscle and increase power</p>
+          </div>
+          <div class="workout-card" data-category="yoga">
+            <img
+              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80"
+              alt="Yoga"
+            />
+            <h3>Yoga</h3>
+            <p>Improve flexibility and mindfulness</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Progress Tracker Section -->
+      <section id="progress" class="section">
+        <h2>Track Your Progress</h2>
+        <div class="progress-container">
+          <div class="progress-form">
+            <h3>Log Your Progress</h3>
+            <form id="progressForm">
+              <div class="form-group">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" id="weight" step="0.1" required />
+              </div>
+
+              <div class="form-group">
+                <label>Select Workout Type</label>
+                <div class="workout-selector">
+                  <div class="workout-type" data-type="cardio">
+                    <i data-lucide="heart" class="icon"></i>
+                    <span>Cardio</span>
+                  </div>
+                  <div class="workout-type" data-type="strength">
+                    <i data-lucide="dumbbell" class="icon"></i>
+                    <span>Strength</span>
+                  </div>
+                  <div class="workout-type" data-type="yoga">
+                    <i data-lucide="lotus" class="icon"></i>
+                    <span>Yoga</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Workout Details (Initially Hidden) -->
+              <div id="cardioDetails" class="workout-details hidden">
+                <h4>Cardio Exercises</h4>
+                <div class="exercise-options">
+                  <label class="exercise-option">
+                    <input type="checkbox" name="cardio" value="running" />
+                    Running
+                  </label>
+                  <label class="exercise-option">
+                    <input type="checkbox" name="cardio" value="cycling" />
+                    Cycling
+                  </label>
+                  <label class="exercise-option">
+                    <input type="checkbox" name="cardio" value="swimming" />
+                    Swimming
+                  </label>
+                  <label class="exercise-option">
+                    <input type="checkbox" name="cardio" value="jumping-rope" />
+                    Jumping Rope
+                  </label>
+                </div>
+              </div>
+
+              <div id="strengthDetails" class="workout-details hidden">
+                <h4>Strength Exercises</h4>
+                <div class="exercise-options">
+                  <label class="exercise-option">
+                    <input type="checkbox" name="strength" value="push-ups" />
+                    Push-ups
+                  </label>
+                  <label class="exercise-option">
+                    <input type="checkbox" name="strength" value="squats" />
+                    Squats
+                  </label>
+                  <label class="exercise-option">
+                    <input type="checkbox" name="strength" value="deadlifts" />
+                    Deadlifts
+                  </label>
+                  <label class="exercise-option">
+                    <input
+                      type="checkbox"
+                      name="strength"
+                      value="bench-press"
+                    />
+                    Bench Press
+                  </label>
+                </div>
+              </div>
+
+              <div id="yogaDetails" class="workout-details hidden">
+                <h4>Yoga Poses</h4>
+                <div class="exercise-options">
+                  <label class="exercise-option">
+                    <input type="checkbox" name="yoga" value="sun-salutation" />
+                    Sun Salutation
+                  </label>
+                  <label class="exercise-option">
+                    <input type="checkbox" name="yoga" value="warrior" />
+                    Warrior Pose
+                  </label>
+                  <label class="exercise-option">
+                    <input type="checkbox" name="yoga" value="tree-pose" /> Tree
+                    Pose
+                  </label>
+                  <label class="exercise-option">
+                    <input type="checkbox" name="yoga" value="cobra" /> Cobra
+                    Pose
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="duration">Duration (minutes)</label>
+                <input type="number" id="duration" required />
+              </div>
+
+              <div class="form-group calories-result">
+                <label>Estimated Calories Burned</label>
+                <div id="caloriesBurned" class="calories-value">0 kcal</div>
+              </div>
+
+              <button type="submit" class="btn-primary">Save Progress</button>
+            </form>
+          </div>
+          <div class="progress-chart">
+            <canvas id="progressChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nutrition Section -->
+      <section id="nutrition" class="section">
+        <h2>Nutrition Guide</h2>
+        <div class="meal-plans">
+          <div class="meal-card">
+            <img
+              src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80"
+              alt="Breakfast"
+            />
+            <div class="meal-content">
+              <h3>Breakfast</h3>
+              <div class="meal-info">
+                <span><i data-lucide="clock" class="icon"></i> 15 mins</span>
+                <span><i data-lucide="flame" class="icon"></i> 350 kcal</span>
+              </div>
+              <div class="nutrition-facts">
+                <div class="fact">
+                  <span>Protein</span>
+                  <span>25g</span>
+                </div>
+                <div class="fact">
+                  <span>Carbs</span>
+                  <span>45g</span>
+                </div>
+                <div class="fact">
+                  <span>Fats</span>
+                  <span>12g</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-card">
+            <img
+              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80"
+              alt="Lunch"
+            />
+            <div class="meal-content">
+              <h3>Lunch</h3>
+              <div class="meal-info">
+                <span><i data-lucide="clock" class="icon"></i> 25 mins</span>
+                <span><i data-lucide="flame" class="icon"></i> 450 kcal</span>
+              </div>
+              <div class="nutrition-facts">
+                <div class="fact">
+                  <span>Protein</span>
+                  <span>30g</span>
+                </div>
+                <div class="fact">
+                  <span>Carbs</span>
+                  <span>55g</span>
+                </div>
+                <div class="fact">
+                  <span>Fats</span>
+                  <span>15g</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-card">
+            <img
+              src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&q=80"
+              alt="Dinner"
+            />
+            <div class="meal-content">
+              <h3>Dinner</h3>
+              <div class="meal-info">
+                <span><i data-lucide="clock" class="icon"></i> 30 mins</span>
+                <span><i data-lucide="flame" class="icon"></i> 400 kcal</span>
+              </div>
+              <div class="nutrition-facts">
+                <div class="fact">
+                  <span>Protein</span>
+                  <span>28g</span>
+                </div>
+                <div class="fact">
+                  <span>Carbs</span>
+                  <span>50g</span>
+                </div>
+                <div class="fact">
+                  <span>Fats</span>
+                  <span>14g</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BMI Calculator Section -->
+      <section id="calculator" class="section">
+        <h2>BMI Calculator</h2>
+        <div class="bmi-calculator">
+          <form id="bmiForm">
+            <div class="form-group">
+              <label for="height">Height (cm)</label>
+              <input type="number" id="height" required />
+            </div>
+            <div class="form-group">
+              <label for="bmiWeight">Weight (kg)</label>
+              <input type="number" id="bmiWeight" required />
+            </div>
+            <button type="submit" class="btn-primary">Calculate BMI</button>
+          </form>
+          <div class="bmi-result" id="bmiResult">
+            <div class="bmi-value">Your BMI: <span id="bmiValue">-</span></div>
+            <div class="bmi-category">
+              Category: <span id="bmiCategory">-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

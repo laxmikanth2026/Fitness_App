@@ -1,0 +1,515 @@
+/* Base Styles */
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --background: #ffffff;
+  --card-bg: #ffffff;
+  --accent: #818cf8;
+}
+
+[data-theme="dark"] {
+  --primary: #818cf8;
+  --primary-dark: #6366f1;
+  --text: #f3f4f6;
+  --text-light: #9ca3af;
+  --background: #111827;
+  --card-bg: #1f2937;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--card-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero .accent {
+  color: var(--accent);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  max-width: 36rem;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Sections */
+.section {
+  padding: 5rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Workout Cards */
+.workout-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.workout-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.workout-card:hover {
+  transform: translateY(-4px);
+}
+
+.workout-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.workout-card h3 {
+  padding: 1.5rem 1.5rem 0.5rem;
+  font-size: 1.5rem;
+}
+
+.workout-card p {
+  padding: 0 1.5rem 1.5rem;
+  color: var(--text-light);
+}
+
+/* Progress Tracker */
+.progress-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.progress-form {
+  padding: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--text-light);
+  border-radius: 0.5rem;
+  background: var(--background);
+  color: var(--text);
+}
+
+/* BMI Calculator */
+.bmi-calculator {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bmi-result {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.bmi-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Icons */
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Meal Plans */
+.meal-plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.meal-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.meal-card:hover {
+  transform: translateY(-4px);
+}
+
+.meal-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.meal-content {
+  padding: 1.5rem;
+}
+
+.meal-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.meal-info {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.meal-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nutrition-facts {
+  background: var(--background);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.fact {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--text-light);
+  color: var(--text);
+}
+
+.fact:last-child {
+  border-bottom: none;
+}
+
+/* Progress Section Enhancements */
+.workout-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.workout-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.workout-type:hover {
+  transform: translateY(-2px);
+}
+
+.workout-type.selected {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.workout-type .icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 0.5rem;
+}
+
+.workout-details {
+  background: var(--card-bg);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.workout-details.hidden {
+  display: none;
+}
+
+.workout-details h4 {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.exercise-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem;
+}
+
+.exercise-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--background);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.exercise-option:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.calories-result {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.calories-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-top: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+  }
+
+  .progress-container {
+    grid-template-columns: 1fr;
+  }
+
+  .meal-plans {
+    grid-template-columns: 1fr;
+  }
+}
